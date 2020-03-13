@@ -27,11 +27,13 @@ export default class SearchesList extends Component {
 
     render() {
         return (
-            <MaterialTable
-                title="Searches List"
-                columns={this.state.table.columns}
-                data={this.state.data}
-            />
+            <div data-testid='table'>
+                <MaterialTable
+                    title="Searches List"
+                    columns={this.state.table.columns}
+                    data={this.state.data}
+                />
+            </div>
         )
     }
 }

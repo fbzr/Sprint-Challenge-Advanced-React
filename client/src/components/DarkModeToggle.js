@@ -1,6 +1,6 @@
 import React from 'react';
 import { useDarkMode } from '../hooks/useDarkMode';
-import './DarkModeToggle.scss';
+import './styles/DarkModeToggle.scss';
 
 const DarkModeToggle = () => {
     const [darkMode, setDarkMode] = useDarkMode(false);
