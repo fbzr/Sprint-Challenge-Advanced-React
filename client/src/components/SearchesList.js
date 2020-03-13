@@ -1,23 +1,38 @@
 import React, { Component } from 'react';
+import MaterialTable from 'material-table';
 import fetchData from '../fetchdata/fetchData';
 
 export default class SearchesList extends Component {
     constructor() {
         super();
         this.state = {
-            data: []
+            data: [],
+            table: {
+                columns: [
+                    { title: 'Name', field: 'name' },
+                    { title: 'Country', field: 'country' },
+                    { title: 'Searches', field: 'searches', type: 'numeric' }
+                ]
+            }
         }
     }
 
     async componentDidMount() {
         const data = await fetchData();
-        this.setState({ data });
+        this.setState({ 
+            ...this.state,
+            data
+        });
     }
 
     render() {
         return (
             <div>
-                <pre>{JSON.stringify(this.state.data, null, 2)}</pre>
+                <MaterialTable
+                    title="Searches List"
+                    columns={this.state.table.columns}
+                    data={this.state.data}
+                />
             </div>
         )
     }
