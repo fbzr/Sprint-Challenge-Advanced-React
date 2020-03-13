@@ -3,6 +3,7 @@ import SearchesList from './components/SearchesList';
 import { Container } from '@material-ui/core';
 import DarkModeToggle from './components/DarkModeToggle';
 import './App.scss';
+import Chart from './components/Chart';
 
 function App() {
   return (
@@ -10,6 +11,7 @@ function App() {
       <h1>App</h1>
       <DarkModeToggle />
       <SearchesList />
+      <Chart />
     </Container>
   );
 }
