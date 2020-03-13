@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import MaterialTable from 'material-table';
 import fetchData from '../fetchdata/fetchData';
+import { Container } from '@material-ui/core';
 
 export default class SearchesList extends Component {
     constructor() {
@@ -27,13 +28,13 @@ export default class SearchesList extends Component {
 
     render() {
         return (
-            <div>
+            <Container>
                 <MaterialTable
                     title="Searches List"
                     columns={this.state.table.columns}
                     data={this.state.data}
                 />
-            </div>
+            </Container>
         )
     }
 }
