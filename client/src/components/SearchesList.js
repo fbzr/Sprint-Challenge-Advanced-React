@@ -3,6 +3,7 @@ import MaterialTable from 'material-table';
 import fetchData from '../fetchdata/fetchData';
 
 export default class SearchesList extends Component {
+    _isMounted = false;
     constructor() {
         super();
         this.state = {
@@ -18,11 +19,19 @@ export default class SearchesList extends Component {
     }
 
     async componentDidMount() {
+        this._isMounted = true;
+
         const data = await fetchData();
-        this.setState({ 
-            ...this.state,
-            data
-        });
+        if(this._isMounted) {
+            this.setState({ 
+                ...this.state,
+                data: data
+            });
+        }
+    }
+
+    componentWillUnmount() {
+        this._isMounted = false;
     }
 
     render() {
