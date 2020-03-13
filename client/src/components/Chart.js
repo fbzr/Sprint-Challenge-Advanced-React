@@ -15,7 +15,7 @@ const Chart = () => {
     }, [])
 
     return (
-        <div>
+        <div data-testid='chart'>
         <h2>Players with more than 10 searches</h2>
         <LineChart
         width={600}
